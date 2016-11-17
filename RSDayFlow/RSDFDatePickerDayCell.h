@@ -31,6 +31,10 @@
  */
 @interface RSDFDatePickerDayCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIImageView *todayImageView;
+@property (nonatomic, strong) UIImageView *markImageView;
+@property (nonatomic, strong) UIImageView *dividerImageView;
+
 ///-------------------------
 /// @name Accessing Subviews
 ///-------------------------

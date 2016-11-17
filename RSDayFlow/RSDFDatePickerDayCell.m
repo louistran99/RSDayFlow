@@ -30,10 +30,8 @@
 + (NSCache *)imageCache;
 + (id)fetchObjectForKey:(id)key withCreator:(id(^)(void))block;
 
-@property (nonatomic, readonly, strong) UIImageView *todayImageView;
 @property (nonatomic, readonly, strong) UIImageView *overlayImageView;
-@property (nonatomic, readonly, strong) UIImageView *markImageView;
-@property (nonatomic, readonly, strong) UIImageView *dividerImageView;
+
 
 @end
 
@@ -180,12 +178,21 @@
 - (UIImageView *)todayImageView
 {
     if (!_todayImageView) {
-        CGRect frame = CGRectMake(0.0f, 0.0f, 35.0f, 35.0f);
-        _todayImageView = [[UIImageView alloc] initWithFrame:frame];
-        _todayImageView.backgroundColor = [UIColor clearColor];
-        _todayImageView.center = CGPointMake(self.frame.size.width / 2, 23.0f);
-        _todayImageView.contentMode = UIViewContentModeCenter;
-        _todayImageView.image = [self todayImage];
+//        CGRect frame = CGRectMake(0.0f, 0.0f, 35.0f, 35.0f);
+//        _todayImageView = [[UIImageView alloc] initWithFrame:frame];
+//        _todayImageView.backgroundColor = [UIColor clearColor];
+//        _todayImageView.center = CGPointMake(self.frame.size.width / 2, 23.0f);
+//        _todayImageView.contentMode = UIViewContentModeCenter;
+//        _todayImageView.image = [self todayImage];
+        
+        
+                CGRect frame = CGRectMake(0.0f, 0.0f, 35.0f, 35.0f);
+                _todayImageView = [[UIImageView alloc] initWithFrame:frame];
+                _todayImageView.backgroundColor = [UIColor clearColor];
+                _todayImageView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
+                _todayImageView.contentMode = UIViewContentModeCenter;
+                _todayImageView.image = [self todayImage];
+        
     }
     return _todayImageView;
 }
@@ -206,12 +213,12 @@
 - (UIImageView *)markImageView
 {
     if (!_markImageView) {
-        CGRect frame = CGRectMake(0.0f, 0.0f, 9.0f, 9.0f);
+        CGRect frame = CGRectMake(0.0f, 0.0f, 35.0f, 35.0f);
         _markImageView = [[UIImageView alloc] initWithFrame:frame];
         _markImageView.backgroundColor = [UIColor clearColor];
-        _markImageView.center = CGPointMake(self.frame.size.width / 2, 50.0f);
+        _markImageView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
         _markImageView.contentMode = UIViewContentModeCenter;
-        _markImageView.image = [self incompleteMarkImage];
+        _markImageView.image = [self completeMarkImage];
     }
     return _markImageView;
 }
@@ -219,7 +226,7 @@
 - (UIImageView *)dividerImageView
 {
 	if (!_dividerImageView) {
-        CGRect frame = CGRectMake(0.0f, 0.0f, 50.0f, 0.5f);
+        CGRect frame = CGRectMake(0.0f, 0.0f, self.bounds.size.width + 6, 0.5f);
         _dividerImageView = [[UIImageView alloc] initWithFrame:frame];
         _dividerImageView.contentMode = UIViewContentModeCenter;
         _dividerImageView.image = [self dividerImage];

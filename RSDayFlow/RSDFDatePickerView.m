@@ -42,12 +42,12 @@ static const CGFloat RSDFDatePickerViewDaysOfWeekViewHeight = 22.0f;
 @interface RSDFDatePickerView () <RSDFDatePickerCollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, readonly, strong) NSCalendar *calendar;
-@property (nonatomic, readonly, assign) RSDFDatePickerDate fromDate;
-@property (nonatomic, readonly, assign) RSDFDatePickerDate toDate;
+@property (nonatomic, assign) RSDFDatePickerDate fromDate;
+@property (nonatomic, assign) RSDFDatePickerDate toDate;
 @property (nonatomic, readonly, strong) RSDFDatePickerDaysOfWeekView *daysOfWeekView;
 @property (nonatomic, readonly, strong) RSDFDatePickerCollectionView *collectionView;
 @property (nonatomic, readonly, strong) RSDFDatePickerCollectionViewLayout *collectionViewLayout;
-@property (nonatomic, readonly, strong) NSDate *today;
+@property (nonatomic, strong) NSDate *today;
 @property (nonatomic, readonly, assign) NSUInteger daysInWeek;
 
 @end
